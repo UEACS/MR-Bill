@@ -1,4 +1,4 @@
-# MR-Bill
+# MR-Bill Web Version (In Development DO NOT USE)
 A simple program for splitting bills from a receipt
 
 # To Use
