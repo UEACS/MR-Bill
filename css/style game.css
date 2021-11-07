@@ -54,3 +54,7 @@ input
 	height: 10px;
 	cursor: pointer;
 }
+.input-box
+{
+	display: inline-table;
+}

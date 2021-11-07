@@ -1,33 +1,31 @@
-function PersonsUpdate()
+function PersonsUpdate(t)
 {
-    console.log("outed");
+    let text = t.value;
+    console.log("outed <"+text+">");
+    if (text.indexOf(",") != -1)
+    {
+        let position = text.indexOf(",");
+        console.log(", found at position "+position);
+        text = text.substring(0,position)
+        console.log(text);
+        // Make new name item
+        let newName = nameBox.cloneNode(true);
+        newName.querySelector("a").innerHTML = text;
+        nameBox.after(newName);
+        t.value = ""; // Removes all text input as the name has been added
+    }
 }
 
 const nextButton = document.querySelector('#next-button');
 const card = document.querySelector('.card');
 const nameInput = document.querySelector('#name');
 const namesContainer = document.querySelector('#names');
+const nameBox = document.querySelector(".confirmed-box")
 
 var instruction
 var names = [];
-card.querySelector("p").innerHTML = "Welcome To Drinkage!";
-
-var text = "No cards found!";
+card.querySelector("p").innerHTML = "MR-Bill-Web Version!";
 
 
-readTextFile("https://ueacs.co.uk/js/drinkCom.txt");
-
-//console.log("Common:"+text);
-var common = text.split('\n');
-
-readTextFile("https://ueacs.co.uk/js/drinkUncom.txt");
-
-//console.log("Uncommon:"+text);
-var uncommon = text.split('\n');
-
-readTextFile("https://ueacs.co.uk/js/drinkRare.txt");
-
-//console.log("Rare:"+text);
-var rare = text.split('\n');
 
 nextButton.addEventListener("click", nextCard);

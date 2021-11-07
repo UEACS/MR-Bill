@@ -26,14 +26,16 @@
       <div class="card">
          <div class="center">
             <form>
-               <input type=text id="price" name="price" placeholder="£0.00">
-               <input type=text id="name" name="name" placeholder="Item">
-               <div class="input-box">
-                  <div class="confirmed-box">
-                     <a>Person</a>
-                     <img src="media/Cross.png">
+               <div class="complete-item" id="0">
+                  <input type=text id="price" name="price" placeholder="£0.00">
+                  <input type=text id="name" name="name" placeholder="Item">
+                  <div class="input-box">
+                     <div class="confirmed-box">
+                        <a>Person</a>
+                        <img src="media/Cross.png">
+                     </div>
+                     <input type=text id="persons" name="persons" placeholder="Person(s)" onkeyup="PersonsUpdate(this)">
                   </div>
-                  <input type=text id="persons" name="persons" placeholder="Person(s)" onkeypress="PersonsUpdate()">
                </div>
             </form>
          </div>
