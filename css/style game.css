@@ -58,3 +58,16 @@ input
 	height: 10px;
 	cursor: pointer;
 }
+
+.complete-item
+{
+	margin: 10px 0 10px 0;
+	padding: 5px;
+	background-color: rgba(0, 0, 0, 0.05);
+	border-radius: 10px;
+}
+#new
+{
+	cursor: pointer;
+	background: rgba(128, 255, 0, 0.2);
+}
