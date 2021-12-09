@@ -17,18 +17,17 @@ function personsUpdate() {
         newName.className = "confirmed-box";
         newName.innerHTML = `
             <a>Person</a>
-            <img src="media/Cross.png" />
+            <img id="remove-person" src="media/Cross.png" />
         `;
         newName.querySelector("a").innerHTML = text;
-        newName.querySelector("img").addEventListener("click", removePerson);
+        newName.querySelector("#remove-person").addEventListener("click", removeElement);
         document.querySelector(".input-box").appendChild(newName);
         this.value = ""; // Removes all text input as the name has been added
     }
 }
 
-function removePerson(event) {
+function removeElement(event) {
     let item = event.currentTarget.parentElement;
-    console.log(item.querySelector("a").innerHTML);
     item.remove();
     console.log("Item removed");
 }
@@ -47,9 +46,11 @@ function newItem() {
     <div class="input-box">
         <input type=text id="persons" name="persons" placeholder="Person(s)" />
     </div>
+    <img id="remove-item" src="media/Cross.png" />
     `;
 
     newItemElm.querySelector("#persons").addEventListener("keyup", personsUpdate);
+    newItemElm.querySelector("#remove-item").addEventListener("click", removeElement);
 
     document.querySelector("div #items").appendChild(newItemElm);
 }

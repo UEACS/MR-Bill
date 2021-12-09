@@ -52,7 +52,8 @@ input
 	border-radius: 5px;
 	padding: 5px;
 }
-.confirmed-box img
+
+#remove-item, #remove-person
 {
 	width: 10px;
 	height: 10px;
