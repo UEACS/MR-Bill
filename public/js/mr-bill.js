@@ -1,51 +1,55 @@
-function PersonsUpdate(t)
-{
-    let text = t.value;
-    console.log("outed <"+text+">");
-    if (text.indexOf(",") != -1)
-    {
+const nameInput = document.querySelector('#name');
+const namesContainer = document.querySelector('#names');
+
+const newItemButton = document.querySelector("#new");
+newItemButton.addEventListener("click", newItem);
+
+function personsUpdate() {
+    let text = this.value;
+    console.log("outed <" + text + ">");
+    if (text.indexOf(",") != -1) {
         let position = text.indexOf(",");
-        console.log(", found at position "+position);
-        text = text.substring(0,position)
+        console.log(", found at position " + position);
+        text = text.substring(0, position)
         console.log(text);
         // Make new name item
-        let newName = nameBox.cloneNode(true);
+        let newName = document.createElement("div");
+        newName.className = "confirmed-box";
+        newName.innerHTML = `
+            <a>Person</a>
+            <img src="media/Cross.png" />
+        `;
         newName.querySelector("a").innerHTML = text;
-        newName.querySelector("img").addEventListener("click",RemovePerson);
-        nameBox.after(newName);
-        t.value = ""; // Removes all text input as the name has been added
+        newName.querySelector("img").addEventListener("click", removePerson);
+        document.querySelector(".input-box").appendChild(newName);
+        this.value = ""; // Removes all text input as the name has been added
     }
 }
 
-function RemovePerson(event)
-{
+function removePerson(event) {
     let item = event.currentTarget.parentElement;
     console.log(item.querySelector("a").innerHTML);
     item.remove();
     console.log("Item removed");
 }
 
-function NewItem()
-{
-    //document.querySelector("#num0") // TODO: Replace with a template
-    let newItem = document.querySelector("#num0").cloneNode(true);
-    newItem.querySelector("img").addEventListener("click",RemovePerson);
-    document.querySelector("#num0").after(newItem);
+/**
+ * Add a new row to the list of items.
+ */
+function newItem() {
+    let newItemElm = document.createElement("div");
+    newItemElm.className = "complete-item";
+
+    newItemElm.innerHTML = `
+    <input type=text id="price" name="price" placeholder="£0.00" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+        data-type="currency" />
+    <input type=text id="name" name="name" placeholder="Item" />
+    <div class="input-box">
+        <input type=text id="persons" name="persons" placeholder="Person(s)" />
+    </div>
+    `;
+
+    newItemElm.querySelector("#persons").addEventListener("keyup", personsUpdate);
+
+    document.querySelector("div #items").appendChild(newItemElm);
 }
-
-const nextButton = document.querySelector('#next-button');
-const card = document.querySelector('.card');
-const nameInput = document.querySelector('#name');
-const namesContainer = document.querySelector('#names');
-const nameBox = document.querySelector(".confirmed-box")
-nameBox.querySelector("img").addEventListener("click",RemovePerson)
-const newItemButton = document.querySelector("#new");
-newItemButton.addEventListener("click",NewItem)
-
-var instruction
-var names = [];
-card.querySelector("p").innerHTML = "MR-Bill-Web Version!";
-
-
-
-nextButton.addEventListener("click", nextCard);
