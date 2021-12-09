@@ -19,6 +19,7 @@ h2
 input
 {
 	width: 12.5%;
+	border-radius: 5px;
 }
 #persons
 {
@@ -35,6 +36,7 @@ input
 	border-radius: 10px;
 	margin: 0;
 	padding: 0;
+	display: inline-table;
 }
 
 .nav-text h1
@@ -44,17 +46,15 @@ input
 
 .confirmed-box
 {
-	display: contents;
-	background-color: rgba(0, 0, 0, 0.212);
-	border-radius: 10px;
+	display: inline-block;
+	background-color: rgba(0, 0, 0, 0.05);
+	margin: 5px;
+	border-radius: 5px;
+	padding: 5px;
 }
 .confirmed-box img
 {
 	width: 10px;
 	height: 10px;
 	cursor: pointer;
-}
-.input-box
-{
-	display: inline-table;
 }
