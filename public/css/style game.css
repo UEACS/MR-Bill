@@ -70,4 +70,16 @@ input
 {
 	cursor: pointer;
 	background: rgba(128, 255, 0, 0.2);
+	text-align: center;
+}
+
+#total
+{
+	min-height: 0;
+}
+
+
+.money
+{
+	float: right;
 }
