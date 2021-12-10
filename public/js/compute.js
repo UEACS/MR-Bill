@@ -47,6 +47,10 @@ function processItems()
             people[person] = people[person] + parseFloat(price.value)/relPeople.length;
         }
     }
+    // Remove previous results before new ones added
+    totalBox.innerHTML = '';
+
+    // Adds new results
     for (let [person,amount] of Object.entries(people))
     {
         console.log(person + " added with £" + amount);
