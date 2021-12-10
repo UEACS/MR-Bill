@@ -21,7 +21,7 @@ function personsUpdate() {
         `;
         newName.querySelector("a").innerHTML = text;
         newName.querySelector("#remove-person").addEventListener("click", removeElement);
-        document.querySelector(".input-box").appendChild(newName);
+        this.parentElement.appendChild(newName);
         this.value = ""; // Removes all text input as the name has been added
     }
 }
