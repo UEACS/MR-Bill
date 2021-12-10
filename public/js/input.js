@@ -6,7 +6,7 @@ newItemButton.addEventListener("click", newItem);
 
 function personsUpdate() {
     let text = this.value;
-    console.log("outed <" + text + ">");
+    //console.log("outed <" + text + ">");
     if (text.indexOf(",") != -1) {
         let position = text.indexOf(",");
         console.log(", found at position " + position);
