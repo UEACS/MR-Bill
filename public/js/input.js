@@ -4,29 +4,35 @@ const namesContainer = document.querySelector('#names');
 const newItemButton = document.querySelector("#new");
 newItemButton.addEventListener("click", newItem);
 
-function personsUpdate() {
+function personsUpdate()
+{
     let text = this.value;
-    //console.log("outed <" + text + ">");
-    if (text.indexOf(",") != -1) {
-        if (text != ",") // Prevents blank names being added
+    if (this.value.indexOf(",") != -1)
+    {
+        if (text != "," || text != "") // Prevents blank names being added
         {
             let position = text.indexOf(",");
             console.log(", found at position " + position);
             text = text.substring(0, position)
             console.log("Text: "+text);
-            // Make new name item
-            let newName = document.createElement("div");
-            newName.className = "confirmed-box";
-            newName.innerHTML = `
-                <a>Person</a>
-                <img id="remove-person" src="media/Cross.png" />
-            `;
-            newName.querySelector("a").innerHTML = text;
-            newName.querySelector("#remove-person").addEventListener("click", removeElement);
-            this.parentElement.appendChild(newName);
+            addPersonBox.call(this,text);
         }
         this.value = ""; // Removes all text input as the name has been added
     }
+}
+
+function addPersonBox(text)
+{
+    // Make new name item
+    let newName = document.createElement("div");
+    newName.className = "confirmed-box";
+    newName.innerHTML = `
+        <a>Person</a>
+        <img id="remove-person" src="media/Cross.png" />
+    `;
+    newName.querySelector("a").innerHTML = text;
+    newName.querySelector("#remove-person").addEventListener("click", removeElement);
+    this.parentElement.appendChild(newName);
 }
 
 function removeElement(event) {

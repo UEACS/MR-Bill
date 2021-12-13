@@ -30,7 +30,14 @@ function processItems()
     {
         const price = localStringToNumber(item.querySelector("#price").value);
         console.log("Next item of value "+ price);
-        const peopleContainer = item.querySelector("#persons").parentElement;
+        var peopleInput = item.querySelector("#persons");
+        const peopleContainer = peopleInput.parentElement;
+        // Adds the name in the input box that may not be submitted yet
+        
+        addPersonBox.call(peopleInput,peopleInput.value);
+        peopleInput.value = '';
+        // Processes people and prices of item
+        
         var relPeople = [];
         for (let person of peopleContainer.children)
         {
