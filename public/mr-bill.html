@@ -8,6 +8,7 @@
    <link rel="stylesheet" href="css/style game.css">
    <script src="js/input.js" defer></script>
    <script src="js/compute.js" defer></script>
+   <script src="js/money-format.js" defer></script>
 </head>
 
 <body>
@@ -23,18 +24,24 @@
       <div class="card">
          <div class="center">
             <form>
+               <!--<input type="currency" id="price" name="price" value="0" placeholder='0' onClick="this.select();" />-->
                <div id="items">
                </div>
                <div class="complete-item" id="new">
                   + New Item +
                </div>
-               <button class="center" onclick="processItems()">Process</button>
+               <div class="complete-item" id="process">
+                  Process
+               </div>
             </form>
          </div>
       </div>
 
       <div class="card" id="total">
          <h2>Total</h2>
+         <div id="total-container">
+
+         </div>
       </div>
 
       <div id="names">

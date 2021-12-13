@@ -91,6 +91,23 @@ button {
 	text-align: center;
 }
 
+#process
+{
+	padding: 10px;
+	color: white;
+	cursor: pointer;
+	background: rgba(243, 146, 0, 0.5);
+	text-align: center;
+	border-radius: 5px;
+	margin: auto;
+	width: fit-content;
+	cursor: pointer;
+}
+#prcess:hover
+{
+	background: rgba(255, 158, 14, 0.781);
+}
+
 #total
 {
 	min-height: 0;

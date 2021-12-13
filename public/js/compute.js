@@ -1,5 +1,7 @@
-const totalBox = document.querySelector('#total');
-
+const totalBox = document.querySelector('#total-container');
+const processButton = document.querySelector('#process');
+processButton.addEventListener("click",processItems);
+console.log("Reloaded");
 
 function addPerson(person,amount)
 {
@@ -13,7 +15,7 @@ function addPerson(person,amount)
     <a class="money">£0</a>
     `;
     newPerson.querySelector(".name").innerHTML = person;
-    newPerson.querySelector(".money").innerHTML = amount;
+    newPerson.querySelector(".money").innerHTML = "£"+Math.round(amount*100)/100;
     totalBox.appendChild(newPerson);
 }
 
@@ -26,8 +28,8 @@ function processItems()
     
     for (let item of items)
     {
-        const price = item.querySelector("#price");
-        console.log("Next item of value £"+price.value);
+        const price = localStringToNumber(item.querySelector("#price").value);
+        console.log("Next item of value "+ price);
         const peopleContainer = item.querySelector("#persons").parentElement;
         var relPeople = [];
         for (let person of peopleContainer.children)
@@ -44,7 +46,7 @@ function processItems()
             {
                 people[person] = 0; // Makes new person with £0
             }
-            people[person] = people[person] + parseFloat(price.value)/relPeople.length;
+            people[person] = people[person] + parseFloat(price)/relPeople.length;
         }
     }
     // Remove previous results before new ones added
