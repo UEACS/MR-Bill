@@ -1,7 +1,6 @@
 const totalBox = document.querySelector('#total-container');
 const processButton = document.querySelector('#process');
 processButton.addEventListener("click",processItems);
-console.log("Reloaded");
 
 function addPerson(person,amount)
 {
@@ -29,13 +28,17 @@ function processItems()
     for (let item of items)
     {
         const price = localStringToNumber(item.querySelector("#price").value);
-        console.log("Next item of value "+ price);
+        //console.log("Next item of value "+ price);
         var peopleInput = item.querySelector("#persons");
         const peopleContainer = peopleInput.parentElement;
+
         // Adds the name in the input box that may not be submitted yet
+        if (peopleInput.value != '')
+        {
+            addPersonBox.call(peopleInput,peopleInput.value);
+            peopleInput.value = '';
+        }
         
-        addPersonBox.call(peopleInput,peopleInput.value);
-        peopleInput.value = '';
         // Processes people and prices of item
         
         var relPeople = [];
