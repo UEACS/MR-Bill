@@ -23,6 +23,7 @@ function personsUpdate()
 
 function addPersonBox(text)
 {
+    text = text.replace(/\s+/g,''); // Removes spaces
     // Make new name item
     let newName = document.createElement("div");
     newName.className = "confirmed-box";
