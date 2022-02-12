@@ -4,16 +4,13 @@ const namesContainer = document.querySelector('#names');
 const newItemButton = document.querySelector("#new");
 newItemButton.addEventListener("click", newItem);
 
-function personsUpdate()
+function personsUpdate(event)
 {
     let text = this.value;
-    if (this.value.indexOf(",") != -1)
+    if (event.code === "Enter")
     {
-        if (text != "," || text != "") // Prevents blank names being added
+        if (text != "") // Prevents blank names being added
         {
-            let position = text.indexOf(",");
-            console.log(", found at position " + position);
-            text = text.substring(0, position)
             console.log("Text: "+text);
             addPersonBox.call(this,text);
         }
