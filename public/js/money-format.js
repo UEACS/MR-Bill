@@ -1,4 +1,5 @@
 var currency = 'GBP' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
+let writtenValue = "0";
 
 function rescanCurrencyInputs()
 {
@@ -22,13 +23,13 @@ function localStringToNumber( s )
 
 function onFocus(e)
 {
-	var value = e.target.value;
-	e.target.value = value ? localStringToNumber(value) : ''
+	var formattedValue = e.target.value;
+	e.target.value = writtenValue; // Displays the last written value
 }
 
 function onBlur(e)
 {
-	var value = e.target.value
+	writtenValue = e.target.value // Saves written value
 
 	var options = {
 		maximumFractionDigits : 2,
@@ -37,7 +38,10 @@ function onBlur(e)
 		currencyDisplay       : "symbol"
   	}
   
-	e.target.value = (value || value === 0) 
-		? localStringToNumber(value).toLocaleString(undefined, options)
+	// Displays formatted and evaluated value
+	console.log("Written "+writtenValue);
+	console.log("Written "+eval(writtenValue));
+	e.target.value = (eval(writtenValue) || eval(writtenValue) === 0) 
+		? localStringToNumber(eval(writtenValue)).toLocaleString(undefined, options)
 		: ''
 }
