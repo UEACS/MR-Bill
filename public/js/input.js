@@ -1,8 +1,16 @@
+// New Items
 const nameInput = document.querySelector('#name');
 const namesContainer = document.querySelector('#names');
 
-const newItemButton = document.querySelector("#new");
+const newItemButton = document.querySelector("#new-item");
 newItemButton.addEventListener("click", newItem);
+
+// New Aliases
+const aliasNameInput = document.querySelector('#name');
+const aliasNamesContainer = document.querySelector('#names');
+
+const newAliasButton = document.querySelector("#new-alias");
+newAliasButton.addEventListener("click", newAlias);
 
 function personsUpdate(event)
 {
@@ -42,7 +50,8 @@ function removeElement(event) {
 /**
  * Add a new row to the list of items.
  */
-function newItem() {
+function newItem()
+{
     let newItemElm = document.createElement("div");
     newItemElm.className = "complete-item";
 
@@ -59,5 +68,26 @@ function newItem() {
     newItemElm.querySelector("#remove-item").addEventListener("click", removeElement);
 
     document.querySelector("div #items").appendChild(newItemElm);
+    rescanCurrencyInputs();
+}
+
+function newAlias()
+{
+    console.log("clicked new alias");
+    let newItemElm = document.createElement("div");
+    newItemElm.className = "alias-item";
+
+    newItemElm.innerHTML = `
+    <input type=text id="alias-name" name="name" placeholder="Enter shortcut name"/>
+    <div class="input-box">
+        <input type=text id="persons" name="persons" placeholder="Person(s)" />
+    </div>
+    <img id="remove-item" src="media/Cross.png" />
+    `;
+
+    newItemElm.querySelector("#persons").addEventListener("keyup", personsUpdate);
+    newItemElm.querySelector("#remove-item").addEventListener("click", removeElement);
+
+    document.querySelector("div #alias-items").appendChild(newItemElm);
     rescanCurrencyInputs();
 }
