@@ -1,5 +1,4 @@
 var currency = 'GBP' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
-let writtenValue = "0";
 
 function rescanCurrencyInputs()
 {
@@ -7,12 +6,9 @@ function rescanCurrencyInputs()
 
 	for (let currencyInput of currencyInputs)
 	{
-		// format inital value
-		onBlur({target:currencyInput});
-
 		// bind event listeners
 		currencyInput.addEventListener('focus', onFocus);
-		currencyInput.addEventListener('blur', onBlur);
+		currencyInput.addEventListener('focusout', onBlur);
 	}
 }
 
@@ -23,25 +19,29 @@ function localStringToNumber( s )
 
 function onFocus(e)
 {
+	console.log("Focussed with value "+e.target.value+" and placeholder "+e.target.placeholder);
 	var formattedValue = e.target.value;
-	e.target.value = writtenValue; // Displays the last written value
+	e.target.value = e.target.placeholder; // Loads the last written value stored in placeholder
 }
 
 function onBlur(e)
 {
-	writtenValue = e.target.value // Saves written value
+	console.log("Value: "+e.target.value+" Placeholder: "+e.target.placeholder);
+	e.target.value = e.target.value.substring(0,1) == "£" ? e.target.value.substring(1):e.target.value // Removes £ if there is one at the start
+
+	e.target.placeholder = e.target.value; // Stores the written value in the placeholder
 
 	var options = {
 		maximumFractionDigits : 2,
 		currency              : currency,
 		style                 : "currency",
 		currencyDisplay       : "symbol"
-  	}
-  
+	}
+
 	// Displays formatted and evaluated value
-	console.log("Written "+writtenValue);
-	console.log("Written "+eval(writtenValue));
-	e.target.value = (eval(writtenValue) || eval(writtenValue) === 0) 
-		? localStringToNumber(eval(writtenValue)).toLocaleString(undefined, options)
+	console.log("Written "+e.target.value);
+	e.target.value = (eval(e.target.value) || eval(e.target.value) === 0)
+		? localStringToNumber(eval(e.target.value)).toLocaleString(undefined, options)
 		: ''
+	console.log("Formatted "+e.target.value);
 }

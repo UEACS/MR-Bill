@@ -47,7 +47,7 @@ function newItem() {
     newItemElm.className = "complete-item";
 
     newItemElm.innerHTML = `
-    <input type="currency" id="price" name="price" value="" placeholder='0' />
+    <input type="currency" id="price" name="price" value="£0.00" placeholder='0' />
     <input type=text id="name" name="name" placeholder="Item"/>
     <div class="input-box">
         <input type=text id="persons" name="persons" placeholder="Person(s)" />
