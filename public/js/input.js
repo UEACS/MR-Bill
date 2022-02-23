@@ -75,7 +75,7 @@ function newAlias()
 {
     console.log("clicked new alias");
     let newItemElm = document.createElement("div");
-    newItemElm.className = "alias-item";
+    newItemElm.className = "complete-item";
 
     newItemElm.innerHTML = `
     <input type=text id="alias-name" name="name" placeholder="Enter shortcut name"/>
