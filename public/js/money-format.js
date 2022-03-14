@@ -14,11 +14,12 @@ function rescanCurrencyInputs()
 
 function localStringToNumber( s )
 {
-	return Number(String(s).replace(/[^0-9.-]+/g,""));
+	return Number(String(s).replace(/[^0-9.-]+|^0/g,""));
 }
 
 function onFocus(e)
 {
+	e.target.select();
 	console.log("Focussed with value "+e.target.value+" and placeholder "+e.target.placeholder);
 	var formattedValue = e.target.value;
 	e.target.value = e.target.placeholder; // Loads the last written value stored in placeholder
