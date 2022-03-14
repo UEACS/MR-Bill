@@ -19,10 +19,10 @@ function localStringToNumber( s )
 
 function onFocus(e)
 {
-	e.target.select();
 	console.log("Focussed with value "+e.target.value+" and placeholder "+e.target.placeholder);
 	var formattedValue = e.target.value;
 	e.target.value = e.target.placeholder; // Loads the last written value stored in placeholder
+	e.target.select();
 }
 
 function onBlur(e)
