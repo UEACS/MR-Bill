@@ -79,7 +79,7 @@ button {
 	margin: 10px 0 10px 0;
 	padding: 5px;
 	background-color: rgba(0, 0, 0, 0.05);
-	border-radius: 10px;
+	border-radius: 5px;
 }
 #new-item,#new-alias
 {
@@ -114,13 +114,8 @@ button {
 .card,.wide-card
 {
 	position: relative;
-	border: #00abe1 5px solid;
+	border: #ffffff30 3px outset;
 	border-radius: 0.5cm;
-	/**
-	background-color: #00174d;
-	background-image: url("../media/pattern2.png");
-	background-size: 600px;
-	**/
 	margin: auto;
 	padding: 0.6cm;
 	min-height: 50vh;
@@ -135,7 +130,9 @@ button {
 }
 .wide-card
 {
+	background: #ffffff12;
 	max-width: 70%;
+	margin: 3px auto;
 }
 
 #total,#groups
