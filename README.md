@@ -1,5 +1,5 @@
 # MR-Bill Web Version (In Development MAY CONTAIN BUGS)
-A simple website for splitting bills from a receipt
+A simple website for splitting bills from a receipt. Hosted on https://ueacs.co.uk/MR-Bill-Web/public/mr-bill.html
 
 # To Use
 ## Basic Usage
